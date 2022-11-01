@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,10 +16,11 @@ public class PersonalityTest {
             for (int i=0; i<survey.length; i++) {
                 int val = choices[i];
 
-                char ch = survey[i].charAt(0);
                 if( val > 0 && val < 4) {
+                    char ch = survey[i].charAt(0);
                     map.put(ch, map.getOrDefault(ch, 0) + 4 - val);
-                } else {
+                } else if (val > 4) {
+                    char ch = survey[i].charAt(1);
                     map.put(ch, map.getOrDefault(ch, 0) + val - 4);
                 }
             }
@@ -28,7 +28,7 @@ public class PersonalityTest {
             return String.valueOf(map.getOrDefault('R', 0) >= map.getOrDefault('T', 0) ? 'R' : 'T') +
                     (map.getOrDefault('C', 0) >= map.getOrDefault('F', 0) ? 'C' : 'F') +
                     (map.getOrDefault('J', 0) >= map.getOrDefault('M', 0) ? 'J' : 'M') +
-                    (map.getOrDefault('A', 0) >= map.getOrDefault('A', 0) ? "A" : 'N');
+                    (map.getOrDefault('A', 0) >= map.getOrDefault('N', 0) ? 'A' : 'N');
         }
     }
 }
