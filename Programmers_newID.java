@@ -2,9 +2,11 @@ import java.util.Locale;
 
 public class Programmers_newID {
     public static void main(String[] args) {
-        String new_id = "...!@BaT#*..y.abcdefghijklm";
+        String[] new_id = new String[] {"...!@BaT#*..y.abcdefghijklm", "z-+.^.", "=.=", "123_.def", "abcdefghijklmn.p"};
         Solution sol = new Solution();
-        System.out.println(sol.solution(new_id));
+        for (String id : new_id) {
+            System.out.println(sol.solution(id));
+        }
     }
 
     public static class Solution {
